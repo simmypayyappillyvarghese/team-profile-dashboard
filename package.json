@@ -1,0 +1,23 @@
+{
+  "name": "team-profile-dashboard",
+  "version": "1.0.0",
+  "description": "This is a Node JS CLI  application utilizing HTML and CSS to generate a team profile dashboard.Application make use of inquirer package to get details of team members and create their profile in the dashboard",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/simmypayyappillyvarghese/team-profile-dashboard.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/simmypayyappillyvarghese/team-profile-dashboard/issues"
+  },
+  "homepage": "https://github.com/simmypayyappillyvarghese/team-profile-dashboard#readme"
+}
