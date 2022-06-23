@@ -10,21 +10,35 @@ html{
 
 :root{
 
-    --header-color:#D69F3A;
-    --card-color:#C34F5A;
+    --header-color:#C34F5A;
+    --card-header-color:#D69F3A;;
     --text-color:#fff;
     --body-color:#F8D4BA;
-    --color-1:#541412;
+    --header-color-1:#541412;
+    --card-body-color:#f6f6f6;
 }
 body{
 
-    background-color: var(--body-color);
     font-family:'Roboto','Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
-header{
+.header{
     
-    background-color: var(--header-color);
+    background-color:var(--header-color);;
     text-align: center;
-    color: var(--color-1);
+    color: var(--text-color);
     padding: 1.5rem 0;
+}
+
+.card{
+    padding: 0;
+}
+
+.card-header{
+    background-color: var(--card-header-color);
+    color: var(--header-color-1);
+}
+.card-body,.card-body li{
+    background-color:var(--card-body-color);
+    color: var(--header-color-1);
+
 }
