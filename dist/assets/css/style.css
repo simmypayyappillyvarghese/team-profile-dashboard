@@ -1,0 +1,30 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 14px;
+}
+
+:root{
+
+    --header-color:#D69F3A;
+    --card-color:#C34F5A;
+    --text-color:#fff;
+    --body-color:#F8D4BA;
+    --color-1:#541412;
+}
+body{
+
+    background-color: var(--body-color);
+    font-family:'Roboto','Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+header{
+    
+    background-color: var(--header-color);
+    text-align: center;
+    color: var(--color-1);
+    padding: 1.5rem 0;
+}
