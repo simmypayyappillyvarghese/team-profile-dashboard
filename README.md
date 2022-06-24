@@ -54,6 +54,15 @@ GIVEN a command-line application that accepts user input
 
 ### Screenshots
 
+Below is the screenshot of CLI terminal with promnpts message:
+
+![Screenshot of CLI terminal](./dist/assets/images/Screenshot-teamprofile-CLI.png)
+
+
+Below is the screenshot of the HTML page generated
+
+![Screenshot of HTML Page Generated](./dist/assets/images/Screenshot-teamprofile-generator.png)
+
 <br>
 
 ### FOLDER STRUCTURE
