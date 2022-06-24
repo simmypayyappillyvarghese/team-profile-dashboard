@@ -1,13 +1,14 @@
 
-
-//To fix the ERR_REQUIRE_ESM used dynamic import and added "type": "module" to package.json
-// import inquirer from "inquirer";
 const inquirer=require('inquirer');
+const Manager=require('./lib/Manager');
+const Engineer=require('./lib/Engineer');
+const Intern=require('./lib/Intern');
+const templateHelper=require('./src/template_helper')
 
+//Array to store the answers specific to each prompts
 let empoyeeInfoArray=[];
 
 //Inquirer modules for Manager related queries and the questions array
-
 const managerPrompt = inquirer.createPromptModule();
 let managerQuestions = [
   {
@@ -55,8 +56,8 @@ let managerQuestions = [
   },
 ];
 
-//Inquirer modules for Engineer related queries and the questions array
 
+//Inquirer modules for Engineer related queries and the questions array
 const engineerPrompt = inquirer.createPromptModule();
 let engineerQuestions = [
    {
@@ -98,8 +99,8 @@ let engineerQuestions = [
 ];
 
 
-//Inquirer modules for intern related queries and the questions array
 
+//Inquirer modules for intern related queries and the questions array
 const internPrompt = inquirer.createPromptModule();
 let internQuestions = [
   {
@@ -143,7 +144,6 @@ let internQuestions = [
 
 
 //Inquirer modules for menu with the questions array
-
 const menuPrompt = inquirer.createPromptModule();
 let menu = [
   {
@@ -154,6 +154,8 @@ let menu = [
   },
 ];
 
+
+
 /*
 Function to display the manager related queries
 If the feedback is reeceived call the display menu function to display the menu
@@ -163,8 +165,7 @@ function displaymanagerQueries(){
 
    managerPrompt(managerQuestions)
    .then((answers)=>{
-      empoyeeInfoArray.push(answers)
-      console.log("Manager Query Answers",answers);
+      empoyeeInfoArray.push(answers);
       displayMenu();
 
    })
@@ -182,7 +183,6 @@ function displayMenu() {
   menuPrompt(menu)
 
     .then((ans) => {
-      console.log("Menu Answer ",ans);
 
       if(ans.employeeChoiceList=='Add an Engineer'){
          displayEngineerQueries();
@@ -194,8 +194,12 @@ function displayMenu() {
 
       else {
          
-         console.log(empoyeeInfoArray);
-         return};
+        //Create Manager,Engineer and Intern Object,once user finish adding the info.
+         createInstances(empoyeeInfoArray);
+         return;
+        
+        
+        };
 
     })
     .catch((error) => console.log(`An error occured within displayMenu ${error}`));
@@ -213,7 +217,6 @@ function displayEngineerQueries() {
     .then((answers) => {
 
       empoyeeInfoArray.push(answers)
-      console.log("Engineer Query Answers: "+answers);
       displayMenu();
     })
     .catch((e) => console.log(`An error occured within display Engineer Queries method : ${e}`));
@@ -230,12 +233,54 @@ function displayInternQueries() {
   internPrompt(internQuestions)
     .then((answers) => {
       empoyeeInfoArray.push(answers);
-      console.log("Intern Query Answers: "+answers);
       displayMenu();
     })
-    .catch((e) => console.log(e=>console.log(`An error occured within display Intern Queries ${e}`)));
+    .catch(e => console.log(`An error occured within display Intern Queries ${e}`));
 
 }
+
+
+//Creates insances of manager,engineer and inter using the answers object from teh prompt
+
+function createInstances(empoyeeInfoArray){
+
+  let objectArray=empoyeeInfoArray.map((employee)=>{
+
+    if(employee.engineerName){
+      let name=employee.engineerName;
+      let id=employee.engineerId;
+      let email=employee.engineerEmail;
+      let github=employee.githubUser;
+          
+       return new Engineer(name,id,email,github);
+    }
+    else if(employee.managerName){
+
+      let name=employee.managerName;
+      let id=employee.managerId;
+      let email=employee.managerEmail;
+      let phoneNo=employee.managerPhoneNumber;
+          
+       return new Manager(name,id,email,phoneNo);
+
+    }
+     else{
+      let name=employee.internName;
+      let id=employee.internId;
+      let email=employee.internEmail;
+      let school=employee.schoolName;
+          
+       return new Intern(name,id,email,school);
+
+    }
+
+  });
+
+  templateHelper.createCards(objectArray);
+  
+}
+
+
 
 /*
 This will be starting point of the application
@@ -258,37 +303,3 @@ function startApp(){
 
 startApp();
 
-
-
-/*
- 
-GIVEN a command-line application that accepts user input
-WHEN I am prompted for my team members and their information
-THEN an HTML file is generated that displays a nicely formatted team roster based on user input
-WHEN I click on an email address in the HTML
-THEN my default email program opens and populates the TO field of the email with the address
-WHEN I click on the GitHub username
-THEN that GitHub profile opens in a new tab
-WHEN I start the application
-THEN I am prompted to enter the team manager’s name, employee ID, email address, and office number
-WHEN I enter the team manager’s name, employee ID, email address, and office number
-THEN I am presented with a menu with the option to add an engineer or an intern or to finish building my team
-WHEN I select the engineer option
-THEN I am prompted to enter the engineer’s name, ID, email, and GitHub username, and I am taken back to the menu
-WHEN I select the intern option
-THEN I am prompted to enter the intern’s name, ID, email, and school, and I am taken back to the menu
-WHEN I decide to finish building my team
-THEN I exit the application, and the HTML is generated
- 
- 
- */
-
-//Get the Input from the User
-//Create Object USing the libraries
-//Modify the user input
-//Write the input to an index file
-
-//Using node index
-// ->>Executing the CLI application
-//  This will prompt user with questions
-//  This will get the questions and answers
