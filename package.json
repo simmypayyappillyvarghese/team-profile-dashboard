@@ -6,9 +6,8 @@
   "directories": {
     "lib": "lib"
   },
-  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -22,8 +21,11 @@
   },
   "homepage": "https://github.com/simmypayyappillyvarghese/team-profile-dashboard#readme",
   "dependencies": {
-    "inquirer": "^9.0.0",
-    "jest": "^28.1.1",
+    "inquirer": "8.0.0",
+    "install": "^0.13.0",
     "node-fetch": "^2.6.1"
+  },
+  "devDependencies": {
+    "jest": "^28.1.1"
   }
 }

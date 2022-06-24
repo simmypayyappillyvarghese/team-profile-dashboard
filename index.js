@@ -1,13 +1,10 @@
-/*
 
- //TO DO Add validation for input
-
-
-*/
 
 //To fix the ERR_REQUIRE_ESM used dynamic import and added "type": "module" to package.json
-import inquirer from "inquirer";
+// import inquirer from "inquirer";
+const inquirer=require('inquirer');
 
+let empoyeeInfoArray=[];
 
 //Inquirer modules for Manager related queries and the questions array
 
@@ -52,7 +49,7 @@ let managerQuestions = [
     message: "Enter the  office phone number:",
     name: "managerPhoneNumber",
     validate:(input)=>{
-      return !input.match(/^\(?([0-9]{3})\)?([ .-]?)([0-9]{3})([.- ])([0-9]{4})$/) ?"Enter a valid phone number":true;
+      return !input.match(/^\(?([0-9]{3})\)?([ .-]?)([0-9]{3})([ .-]?)([0-9]{4})$/)?"Enter a valid phone number":true;
       
     }
   },
@@ -128,7 +125,7 @@ let internQuestions = [
     message: "Enter the Intern's email address",
     name: "internEmail",
     validate:(input)=>{
-      return !input.match(/^[a-zA-Z0-9]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,3}$/) ?"Enter a valid email address ":true;
+      return !input.match(/^[a-zA-Z0-9]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,3}$/)?"Enter a valid email address ":true;
     }
 
   },
@@ -166,7 +163,7 @@ function displaymanagerQueries(){
 
    managerPrompt(managerQuestions)
    .then((answers)=>{
-
+      empoyeeInfoArray.push(answers)
       console.log("Manager Query Answers",answers);
       displayMenu();
 
@@ -195,7 +192,10 @@ function displayMenu() {
          displayInternQueries();
       }
 
-      else return;
+      else {
+         
+         console.log(empoyeeInfoArray);
+         return};
 
     })
     .catch((error) => console.log(`An error occured within displayMenu ${error}`));
@@ -211,6 +211,8 @@ function displayEngineerQueries() {
 
   engineerPrompt(engineerQuestions)
     .then((answers) => {
+
+      empoyeeInfoArray.push(answers)
       console.log("Engineer Query Answers: "+answers);
       displayMenu();
     })
@@ -227,6 +229,7 @@ function displayInternQueries() {
 
   internPrompt(internQuestions)
     .then((answers) => {
+      empoyeeInfoArray.push(answers);
       console.log("Intern Query Answers: "+answers);
       displayMenu();
     })
@@ -249,6 +252,7 @@ function startApp(){
 
    displaymanagerQueries();
 
+   
 }
 
 
