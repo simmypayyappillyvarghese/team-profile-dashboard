@@ -34,6 +34,11 @@ GIVEN a command-line application that accepts user input
 
 ### Links
 
+* Video Link : https://www.loom.com/share/3efe747a56b1431d86f58e2aac574647
+
+* Github Repo Link : https://github.com/simmypayyappillyvarghese/team-profile-dashboard
+
+
 <br>
 
 ### Technologies & Packages Used
