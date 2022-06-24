@@ -195,8 +195,8 @@ function displayMenu() {
       else {
          
         //Create Manager,Engineer and Intern Object,once user finish adding the info.
-         createInstances(empoyeeInfoArray);
-         return;
+         return createInstances(empoyeeInfoArray);
+         
         
         
         };

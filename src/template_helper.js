@@ -64,40 +64,50 @@ employeeObject.forEach((employee)=>{
 
     if(role==='Manager'){
 
-          const{name,id,email,officeNumber}= employee;
+        //   const{name,id,email,officeNumber}= employee;
+        const name=employee.getName();
+        const id=employee.getId();
+        const email=employee.getEmail();
+        const officeNumber=employee.getOfficeNumber();
+
          
          managerString +=
                     `
-                    <div class="card col-12 col-md-4 px-2">
+                    <div class="card col-12 col-md-4 py-2 px-2">
                     <div class="card-header">
                         <h4>${name}</h4>
                         <i class="fa fa-laptop"></i><h4>${role}</h4>
                     </div>
                     <div class="card-body">
                         <ul class="list-group">
-                            <li class="list-group-item">${id}</li>
-                            <li class="list-group-item"><a href="mailto:${email}">${email}</a></li>
-                            <li class="list-group-item">${officeNumber}</li>
+                            <li class="list-group-item">ID: ${id}</li>
+                            <li class="list-group-item"><a href="mailto:${email}">Email : ${email}</a></li>
+                            <li class="list-group-item">Phone: ${officeNumber}</li>
                         </ul>
                     </div>
                     </div>
                     `;
     }
     else if (role==='Engineer'){
-        const{name,id,email,github}= employee;
+        // const{name,id,email,github}= employee;
+
+        const name=employee.getName();
+        const id=employee.getId();
+        const email=employee.getEmail();
+        const github=employee.getGithub();
          
         engineerString +=
                    `
-                   <div class="card col-12 col-md-4 px-2">
+                   <div class="card col-12 col-md-4 py-2 px-2">
                    <div class="card-header">
                        <h4>${name}</h4>
                        <i class="fa fa-gears"></i><h4>${role}</h4>
                    </div>
                    <div class="card-body">
                        <ul class="list-group">
-                           <li class="list-group-item">${id}</li>
-                           <li class="list-group-item"><a href="mailto:${email}">${email}</a></li>
-                           <li class="list-group-item"><a href="https://github.com/${github}" target="_blank">${github}</a></li>
+                           <li class="list-group-item">Id: ${id}</li>
+                           <li class="list-group-item"><a href="mailto:${email}">Email : ${email}</a></li>
+                           <li class="list-group-item"><a href="https://github.com/${github}" target="_blank">Github: ${github}</a></li>
                        </ul>
                    </div>
                    </div>
@@ -106,20 +116,24 @@ employeeObject.forEach((employee)=>{
     }
     else if(role==='Intern'){
 
-        const{name,id,email,school}= employee;
+        // const{name,id,email,school}= employee;
+        const name=employee.getName();
+        const id=employee.getId();
+        const email=employee.getEmail();
+        const school=employee.getSchool();
          
         internString +=
                    `
-                   <div class="card col-12 col-md-4 px-2">
+                   <div class="card col-12 col-md-4 py-2 px-2">
                    <div class="card-header">
                        <h4>${name}</h4>
                        <i class="fa fa-graduation-cap"></i><h4>${role}</h4>
                    </div>
                    <div class="card-body">
                        <ul class="list-group">
-                           <li class="list-group-item">${id}</li>
-                           <li class="list-group-item"><a href="mailto:${email}">${email}</a></li>
-                           <li class="list-group-item">${school}</li>
+                           <li class="list-group-item">Id: ${id}</li>
+                           <li class="list-group-item"><a href="mailto:${email}">Email: ${email}</a></li>
+                           <li class="list-group-item">School: ${school}</li>
                        </ul>
                    </div>
                    </div>
