@@ -54,7 +54,7 @@ GIVEN a command-line application that accepts user input
 
 ### Screenshots
 
-Below is the screenshot of CLI terminal with promnpts message:
+Below is the screenshot of CLI terminal with prompt message:
 
 ![Screenshot of CLI terminal](./dist/assets/images/Screenshot-teamprofile-CLI.png)
 
